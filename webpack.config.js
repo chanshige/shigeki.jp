@@ -18,7 +18,7 @@ const public_path = path.resolve(__dirname, 'public');
  * @see https://github.com/jantimon/html-webpack-plugin
  */
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: [
         './src/js/index.js',
         './src/sass/default.sass'
