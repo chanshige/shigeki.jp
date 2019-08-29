@@ -1,3 +1,5 @@
+"use strict";
+
 const path = require('path');
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -17,17 +19,20 @@ const public_path = path.resolve(__dirname, 'public');
  */
 module.exports = {
     mode: 'development',
-    entry: './src/js/index.js',
+    entry: [
+        './src/js/index.js',
+        './src/sass/default.sass'
+    ],
 
     output: {
-        filename: 'bundle.js',
+        filename: 'assets/js/[name].[chunkhash].js',
         path: public_path
     },
 
     plugins: [
         new webpack.ProgressPlugin(),
-        new HtmlWebpackPlugin({template: 'public/index.html'}),
-        new MiniCssExtractPlugin({filename: 'style.css'})
+        new HtmlWebpackPlugin({template: 'src/source/index.html'}),
+        new MiniCssExtractPlugin({filename: 'assets/css/[name].[chunkhash].css'})
     ],
 
     module: {
@@ -90,7 +95,7 @@ module.exports = {
         watchContentBase: true,
         contentBase: public_path,
         port: 3000,
-        open: false,
+        open: true,
         inline: false,
         hot: false
     },

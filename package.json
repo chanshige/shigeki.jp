@@ -2,7 +2,6 @@
   "name": "shigeki.jp",
   "version": "1.0.0",
   "description": "My webpack project",
-  "main": "index.js",
   "repository": "git@github.com:chanshige/shigeki.jp.git",
   "author": "shigeki tanaka",
   "license": "MIT",
