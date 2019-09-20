@@ -38,7 +38,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.(js|jsx)$/,
+                test: /\.(js|jsx)$/,
                 include: [path.resolve(__dirname, 'src/js')],
                 loader: 'babel-loader',
 
@@ -66,6 +66,17 @@ module.exports = {
                         }
                     },
                     'sass-loader'
+                ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/fonts/[name].[ext]',
+                        }
+                    }
                 ]
             }
         ]
